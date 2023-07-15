@@ -28,7 +28,7 @@ class TestMainPage(BaseTest):
 
         LOGGER.info("Checking e-mail address")
         email = commons.get_element(MainPage.EMAIL_ADDRESS)
-        assert email.text == MainPage.EXPECTED_EMAIL
+        assert email.text == MainPage.EXPECTED_EMAIL, "E-mail address is incorrect"
 
     def test_facebook_link(self):
         commons = Common(self.driver)
