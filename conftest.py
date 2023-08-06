@@ -4,6 +4,7 @@ import os
 
 import chromedriver_autoinstaller
 import pytest
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.webdriver import WebDriver
@@ -17,6 +18,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session", autouse=True)
 def main_fixture(request):
+    chromedriver_autoinstaller.install()
     headless = request.config.getoption("--headless")
     options = Options()
     if headless:
@@ -30,8 +32,7 @@ def main_fixture(request):
 
 @pytest.fixture(scope="class")
 def driver_setup_fixture(main_fixture):
-    chromedriver_autoinstaller.install()
-    service_obj = Service("chromedriver")
+    service_obj = Service("./chromedriver")
     options = main_fixture
     driver = WebDriver(service=service_obj, options=options)
     yield driver
