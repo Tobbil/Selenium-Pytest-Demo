@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BaseTest:
     @pytest.fixture(autouse=True)
-    def _driver(self, driver_setup_fixture):
+    def _driver_setup(self, driver_setup_fixture):
         self.driver = driver_setup_fixture
 
     def _handle_exceptions(self, element):
