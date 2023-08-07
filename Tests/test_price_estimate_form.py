@@ -1,7 +1,6 @@
 import logging
 
 from BaseTest import BaseTest
-from common import Common
 
 from PageObjects.EstimatePage import EstimatePage
 
