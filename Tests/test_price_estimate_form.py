@@ -12,4 +12,5 @@ class TestEstimatePage(BaseTest):
 
     def test_page_title(self):
         self.driver.get(PAGE_URL)
+        LOGGER.info("Checking page title")
         assert self.driver.title == EstimatePage.EXPECTED_PAGE_TITLE
